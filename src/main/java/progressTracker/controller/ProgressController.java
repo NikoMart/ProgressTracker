@@ -2,10 +2,8 @@ package progressTracker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import progressTracker.Repository.ProgressRepository;
 import progressTracker.model.ProgressUnit;
 
@@ -26,9 +24,11 @@ public class ProgressController {
         return "Saved";
     }
 
-    @GetMapping(path = "/all")
-    public @ResponseBody
-    Iterable<ProgressUnit> getAllProgressUnits() {
-        return progressRepository.findAll();
+    @RequestMapping(path = "/units", method = RequestMethod.GET)
+    public String getAllProgressUnits(Model model) {
+        model.addAttribute("units", progressRepository.findAll());
+        return "ProgressUnitsList";
     }
+
+
 }

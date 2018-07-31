@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Progress Units</title>
+
+</head>
+<body>
+<div class="container">
+    <h2>Progress Units</h2>
+    <div th:if="${not #lists.isEmpty(units)}">
+
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>ProgressValue</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="unit : ${units}">
+                <td th:text="${unit.id}">Id</td>
+                <td th:text="${unit.name}">Name</td>
+                <td th:text="${unit.description}">Description</td>
+                <td th:text="${unit.progressValue}">Type</td>
+                <td><a th:href="${'/progress/edit/' + unit.id}" class="btn btn-default">Edit</a></td>
+                <td><a th:href="${'/progress/delete/' + unit.id}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
