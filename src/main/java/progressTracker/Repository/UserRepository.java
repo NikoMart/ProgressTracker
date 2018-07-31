@@ -1,4 +1,4 @@
-package progressTracker;
+package progressTracker.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 import progressTracker.model.User;

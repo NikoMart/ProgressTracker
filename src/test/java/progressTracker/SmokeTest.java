@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import progressTracker.controller.GreetingController;
 import progressTracker.controller.GreetingRestController;
+import progressTracker.controller.ProgressController;
 import progressTracker.controller.UserController;
 
 @RunWith(SpringRunner.class)
@@ -21,6 +22,8 @@ public class SmokeTest {
     private GreetingController greetingController;
     @Autowired
     private GreetingRestController greetingRestController;
+    @Autowired
+    private ProgressController progressController;
 
     @Test
     public void userControllerContextLoads() throws Exception {
@@ -35,5 +38,10 @@ public class SmokeTest {
     @Test
     public void greetingRestControllerContextLoads() throws Exception {
         assertThat(greetingRestController).isNotNull();
+    }
+
+    @Test
+    public void progressControllerContextLoads() throws Exception {
+        assertThat(progressController).isNotNull();
     }
 }
